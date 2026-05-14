@@ -4,4 +4,5 @@
 |---|---|---|
 | 1 | [Introductions Discussion](Week1/class_intro.txt)| May 8, 2026 |
 | 1 | [GitHub Repo Exercise](Week1/Repo%Creation%on%Github.docx) | May 8, 2026 |
+| 2 | [Development Environment Exercise](Week2/DevEnv%Setup.docx) | May 14, 2026 |
 
