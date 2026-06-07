@@ -86,10 +86,5 @@ class TopLevelDialog(ComponentDialog):
         user_profile: UserProfile = step_context.values[self.USER_INFO]
         user_profile.companies_to_review = step_context.result
 
-        # Thank them for participating.
-        await step_context.context.send_activity(
-            MessageFactory.text(f"Thanks for participating, {user_profile.name}.")
-        )
-
         # Exit the dialog, returning the collected user information.
         return await step_context.end_dialog(user_profile)

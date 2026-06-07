@@ -11,7 +11,7 @@ from botbuilder.core import (
 from botbuilder.dialogs import Dialog
 from botbuilder.schema import ChannelAccount
 
-from .dialog_bot import DialogBot
+from .dialog_bot import DialogBot, CAPABILITIES_TEXT
 
 
 class DialogAndWelcomeBot(DialogBot):
@@ -33,7 +33,6 @@ class DialogAndWelcomeBot(DialogBot):
             if member.id != turn_context.activity.recipient.id:
                 await turn_context.send_activity(
                     MessageFactory.text(
-                        f"Welcome to Complex Dialog Bot {member.name}. This bot provides a complex conversation, with "
-                        f"multiple dialogs. Type anything to get started. "
+                        f"Welcome to Complex Dialog Bot {member.name}. " + CAPABILITIES_TEXT
                     )
                 )

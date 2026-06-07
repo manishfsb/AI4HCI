@@ -39,9 +39,15 @@ class MainDialog(ComponentDialog):
             if len(user_info.companies_to_review) == 0
             else " and ".join(user_info.companies_to_review)
         )
-        status = f"You are signed up to review {companies}."
+        status = (
+            f"Thanks for participating, {user_info.name}. "
+            f"You are signed up to review {companies}."
+        )
 
         await step_context.context.send_activity(MessageFactory.text(status))
+        await step_context.context.send_activity(
+            MessageFactory.text("Type 'start' to start this conversation again. ")
+        )
 
         # store the UserProfile
         accessor = self.user_state.create_property("UserProfile")
