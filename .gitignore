@@ -3,3 +3,6 @@
 
 #Any pycache
 __pycache__/
+
+# Secrets
+.env
