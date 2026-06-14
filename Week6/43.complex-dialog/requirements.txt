@@ -1,2 +1,4 @@
 botbuilder-integration-aiohttp>=4.15.0
 botbuilder-dialogs>=4.15.0
+google-genai>=0.1.0
+python-dotenv>=1.0.0
