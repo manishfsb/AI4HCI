@@ -3,6 +3,10 @@
 # Licensed under the MIT License.
 
 import os
+from dotenv import load_dotenv
+
+#reads secret into os.environ; used to retrieve the API key below
+load_dotenv()
 
 """ Bot Configuration """
 
@@ -15,3 +19,5 @@ class DefaultConfig:
     APP_PASSWORD = os.environ.get("MicrosoftAppPassword", "")
     APP_TYPE = os.environ.get("MicrosoftAppType", "MultiTenant")
     APP_TENANTID = os.environ.get("MicrosoftAppTenantId", "")
+
+    GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
