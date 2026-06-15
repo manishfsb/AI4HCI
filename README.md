@@ -8,5 +8,6 @@
 | 3 | [HCI AI Synergies](Week3/Synergies.docx) | May , 2026 |
 | 4 | [Design Thinking](Week4/Design%Thinking.docx) | May , 2026 |
 | 5 | [Simple Chatbot](Week5/Simple%Chatbot.docx) | Jun 7, 2026 |
+| 6 | [Gemini Integrated Chatbot](Week6/Gemini%Integrated%Chatbot.docx) | Jun 14, 2026 |
 
 
