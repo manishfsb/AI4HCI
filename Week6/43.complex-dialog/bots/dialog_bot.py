@@ -9,26 +9,20 @@ from botbuilder.core import (
     TurnContext,
 )
 from botbuilder.dialogs import Dialog
+from helpers.ai_helper import get_ai_response
 from helpers.dialog_helper import DialogHelper
 
 START_TRIGGERS = ("start", "restart", "begin")
-QUESTION_STARTERS = (
-    "how", "what", "why", "when", "where", "who", "which",
-    "can you", "do you", "is it", "are you", "could you",
-)
 
 CAPABILITIES_TEXT = (
     "Here's what I can do:\n"
     "- Ask for your name and age\n"
     "- If you're 25 or older, let you pick companies to review\n"
     "- Remember your answers and choices\n"
+    "- Answer other questions using Gemini\n"
     "\n"
     "Type 'start' to begin, or 'help' anytime to see this again."
 )
-
-
-def _looks_like_question(text: str) -> bool:
-    return text.endswith("?") or text.startswith(QUESTION_STARTERS)
 
 
 class DialogBot(ActivityHandler):
@@ -82,18 +76,5 @@ class DialogBot(ActivityHandler):
 
         if not dialog_running:
             print(f"[on_message_activity] idle turn, not starting dialog: text={text!r}")
-            if _looks_like_question(text):
-                await turn_context.send_activity(
-                    MessageFactory.text(
-                        "I can't answer open-ended questions like that. "
-                        "I'm a simple bot, not a general-knowledge assistant.\n\n"
-                        + CAPABILITIES_TEXT
-                    )
-                )
-            else:
-                await turn_context.send_activity(
-                    MessageFactory.text(
-                        "I didn't understand that. Type 'start' to begin, "
-                        "or 'help' to see what I can do."
-                    )
-                )
+            ai_reply = await get_ai_response(turn_context.activity.text)
+            await turn_context.send_activity(MessageFactory.text(ai_reply))
