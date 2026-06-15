@@ -2,14 +2,41 @@
 
 This sample creates a complex conversation with dialogs.
 
+This copy is based on Microsoft's `43.complex-dialog` sample (BotBuilder-Samples)
+and has been extended across two assignments:
+
+- **Week 5** added a "capabilities" command/welcome message and reworked the idle
+  message handler so out-of-scope input no longer gets swallowed as the start of
+  the name/age dialog.
+- **Week 6** integrated Google's **Gemini API** as a cloud AI-as-a-service: any
+  idle input that isn't a recognized command (`start`/`restart`/`begin`,
+  `help`/`capabilities`) is now answered by Gemini instead of a static message.
+
+## Bot Capabilities
+
+- Collects the user's name and age via a multi-step dialog.
+- If the user is 25 or older, lets them pick companies to review.
+- Remembers answers/choices for the duration of the conversation.
+- Responds to `help` / `capabilities` / `what can you do` with a summary of the
+  above.
+- Answers any other message (questions, phrases, or otherwise unrecognized
+  input) using Gemini (see `helpers/ai_helper.py`).
+
 ## To try this sample
 
 - Clone the repository
-```bash
-git clone https://github.com/Microsoft/botbuilder-samples.git
-```
-- In a terminal, navigate to `botbuilder-samples\samples\python\43.complex-dialog` folder
+    ```bash
+    git clone https://github.com/manishfsb/AI4HCI/Week6.git
+    ```
+- In a terminal, navigate to the `Week6/43.complex-dialog` folder
 - Activate your desired virtual environment
+- Create a `.env` file in the repository root containing your Gemini API key:
+  ```
+  GEMINI_API_KEY=your-gemini-api-key-here
+  ```
+  (Get a free key from [Google AI Studio](https://aistudio.google.com). Without
+  this, the bot still runs, but falls back to a "not configured" message for
+  any input Gemini would otherwise answer.)
 - In the terminal, type `pip install -r requirements.txt`
 - Run your bot with `python app.py`
 
