@@ -18,11 +18,10 @@ from botbuilder.core.integration import aiohttp_error_middleware
 from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
 from botbuilder.schema import Activity, ActivityTypes
 
-from bots import DialogAndWelcomeBot
+from bots import WelcomeBot
 
 # Create the loop and Flask app
 from config import DefaultConfig
-from dialogs import MainDialog
 
 CONFIG = DefaultConfig()
 
@@ -70,9 +69,8 @@ MEMORY = MemoryStorage()
 USER_STATE = UserState(MEMORY)
 CONVERSATION_STATE = ConversationState(MEMORY)
 
-# Create Dialog and Bot
-DIALOG = MainDialog(USER_STATE)
-BOT = DialogAndWelcomeBot(CONVERSATION_STATE, USER_STATE, DIALOG)
+# Create Bot
+BOT = WelcomeBot(CONVERSATION_STATE, USER_STATE)
 
 
 # Listen for incoming requests on /api/messages.
