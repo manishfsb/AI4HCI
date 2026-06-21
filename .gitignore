@@ -6,3 +6,15 @@ __pycache__/
 
 # Secrets
 .env
+
+#Any files under learnings; these are my personal learnings
+learnings/
+
+#Any paper
+*/papers/
+
+#Sample jsons used to debug the bot's workflow
+sample_json/
+
+#Claude-specific files
+.claude/
