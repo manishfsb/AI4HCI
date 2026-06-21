@@ -1,7 +1,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
 
-from .dialog_bot import DialogBot
-from .dialog_and_welcome_bot import DialogAndWelcomeBot
+from .listening_bot import ListeningBot
+from .welcome_bot import WelcomeBot
 
-__all__ = ["DialogBot", "DialogAndWelcomeBot"]
+__all__ = ["ListeningBot", "WelcomeBot"]
